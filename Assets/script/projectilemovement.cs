@@ -17,11 +17,11 @@ public class projectilemovement : MonoBehaviour
     {
         bullet.velocity = new Vector2(0, 1) * bulletspeed;
     }
-    void OnColliderHit(Collider collision)
+    void OnColliderHit(Collider collision2D)
     {
-        if (collision.gameObject.tag == "enemy")
+        if (collision2D.gameObject.tag == "enemy")
         {
-            Object.Destroy(collision.gameObject);
+            Object.Destroy(gameObject);
         }
     }
 }

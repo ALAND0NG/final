@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public float playerSpeed = 10.0f;
+    public float playerSpeed = 8.0f;
     public Rigidbody2D Player;
+    public int life = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,13 @@ public class player : MonoBehaviour
     public void PlayerMovement()
     {
         Player.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * playerSpeed;
+    }
+    void OnColliderHit(Collider collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            life --;
+        }
     }
 }
 
